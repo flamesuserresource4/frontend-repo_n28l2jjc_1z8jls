@@ -7,7 +7,7 @@ import CTA from './components/CTA';
 
 function App() {
   return (
-    <div className="min-h-screen w-full bg-slate-950 text-slate-100">
+    <div className="min-h-screen w-full bg-black text-emerald-100">
       <Navbar />
       <main className="pt-24">
         <Hero />
@@ -15,9 +15,9 @@ function App() {
         <HowItWorks />
         <CTA />
       </main>
-      <footer className="border-t border-white/10 py-10 text-center text-sm text-slate-400">
+      <footer className="border-t border-emerald-400/20 py-10 text-center text-sm text-emerald-200/70">
         <div className="mx-auto max-w-7xl px-6">
-          © {new Date().getFullYear()} Raiser — Built with love and great vibes.
+          © {new Date().getFullYear()} Raiser — Warp‑speed 3D building.
         </div>
       </footer>
     </div>

@@ -19,11 +19,11 @@ const Hero = () => {
       <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-center px-6 py-24 text-center sm:py-28 lg:py-32">
         <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur">
           <Sparkles className="h-4 w-4 text-violet-300" />
-          <span className="text-sm text-violet-200">Dream it. Build it. Ship it.</span>
+          <span className="text-sm text-violet-200">Introducing Raiser</span>
         </div>
 
         <h1 className="mt-6 max-w-4xl bg-gradient-to-br from-white via-violet-100 to-fuchsia-200 bg-clip-text text-4xl font-extrabold leading-tight text-transparent sm:text-6xl">
-          The Vibe Coding Platform for Instant Full‑Stack Creation
+          Raiser — the Vibe Coding platform for instant full‑stack creation
         </h1>
         <p className="mt-6 max-w-2xl text-base text-slate-300 sm:text-lg">
           Describe what you want and watch it come alive — UI, backend, database, auth, payments, and deploy. All in one collaborative canvas.
@@ -35,7 +35,7 @@ const Hero = () => {
             className="group inline-flex items-center gap-2 rounded-xl bg-violet-600 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-violet-600/30 transition hover:translate-y-[-2px] hover:bg-violet-500"
           >
             <Rocket className="h-4 w-4 transition group-hover:rotate-6" />
-            Start Building
+            Start with Raiser
           </a>
           <a
             href="#features"

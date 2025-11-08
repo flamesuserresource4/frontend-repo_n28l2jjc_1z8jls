@@ -52,7 +52,7 @@ const FeatureGrid = () => {
     <section id="features" className="relative mx-auto max-w-7xl px-6 py-20">
       <div className="mx-auto max-w-3xl text-center">
         <h2 className="bg-gradient-to-br from-white to-violet-200 bg-clip-text text-3xl font-bold text-transparent sm:text-4xl">
-          Build anything. No ceiling.
+          Build anything with Raiser. No ceiling.
         </h2>
         <p className="mt-3 text-slate-300">
           Drag‑and‑drop meets AI codegen. Automations, real‑time sync, and data at your fingertips.

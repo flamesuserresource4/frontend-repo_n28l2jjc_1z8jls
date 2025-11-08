@@ -5,7 +5,7 @@ const steps = [
   {
     icon: MessageSquare,
     title: 'Describe the vibe',
-    desc: 'Tell the AI what you want: features, style, integrations. The platform plans and scaffolds everything.'
+    desc: 'Tell the AI what you want: features, style, integrations. Raiser plans and scaffolds everything.'
   },
   {
     icon: Layout,
@@ -42,7 +42,7 @@ const HowItWorks = () => {
       <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2">
         <div>
           <h2 className="bg-gradient-to-br from-white to-violet-200 bg-clip-text text-3xl font-bold text-transparent sm:text-4xl">
-            From prompt to production in minutes
+            From prompt to production with Raiser
           </h2>
           <p className="mt-3 text-slate-300">
             Built for creators, founders, and teams who want to move fast without sacrificing quality.
@@ -55,10 +55,10 @@ const HowItWorks = () => {
         </div>
         <div className="relative rounded-2xl border border-white/10 bg-gradient-to-br from-slate-900 to-slate-950 p-6 shadow-lg">
           <div className="mb-4 text-xs font-medium uppercase tracking-widest text-violet-300/80">
-            Live Console
+            Raiser Console
           </div>
           <div className="space-y-3 text-xs text-slate-300">
-            <div className="rounded-md bg-black/40 p-3">> add chat support with file uploads</div>
+            <div className="rounded-md bg-black/40 p-3">&gt; add chat support with file uploads</div>
             <div className="rounded-md bg-black/40 p-3">✔ backend route /chat created</div>
             <div className="rounded-md bg-black/40 p-3">✔ UI ChatPanel added with streaming responses</div>
             <div className="rounded-md bg-black/40 p-3">✔ Stripe checkout integrated</div>

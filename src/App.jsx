@@ -15,11 +15,6 @@ function App() {
         <SecureEnterprise />
         <CTA />
       </main>
-      <footer className="border-t border-emerald-400/20 py-10 text-center text-sm text-emerald-200/70">
-        <div className="mx-auto max-w-7xl px-6">
-          © {new Date().getFullYear()} Raiser — Warp‑speed 3D building.
-        </div>
-      </footer>
     </div>
   );
 }

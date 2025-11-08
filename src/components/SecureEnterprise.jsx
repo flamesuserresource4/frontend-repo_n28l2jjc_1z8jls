@@ -21,8 +21,11 @@ const SecureEnterprise = () => {
         className="mx-auto max-w-4xl text-center"
       >
         <h2 className="bg-gradient-to-br from-white to-emerald-200 bg-clip-text text-3xl font-bold text-transparent sm:text-4xl">
-          Transparency and control at every touchpoint.
+          Raiser for Enterprise
         </h2>
+        <p className="mx-auto mt-3 max-w-2xl text-emerald-100/85">
+          Governance, security, and observability — without sacrificing speed. Add 3D clarity to complex engineering.
+        </p>
       </motion.div>
 
       <div className="mx-auto mt-10 grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-3">
@@ -58,7 +61,7 @@ const SecureEnterprise = () => {
         </motion.div>
       </div>
 
-      {/* Section 2: Enterprise Hero Card */}
+      {/* Enterprise Hero Card */}
       <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-5">
         <motion.div
           initial={{ x: -16, opacity: 0 }}
@@ -69,12 +72,9 @@ const SecureEnterprise = () => {
         >
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(16,185,129,0.18),transparent_40%),radial-gradient(circle_at_80%_60%,rgba(255,255,255,0.08),transparent_45%)]" />
           <div className="relative z-10">
-            <div className="text-sm font-medium text-emerald-300">Warp for Enterprise</div>
-            <h3 className="mt-2 text-2xl font-bold text-white sm:text-3xl">The path to 10x developer productivity.</h3>
+            <div className="text-sm font-medium text-emerald-300">Raiser for Enterprise</div>
+            <h3 className="mt-2 text-2xl font-bold text-white sm:text-3xl">Ship faster with trust built‑in.</h3>
             <p className="mt-3 max-w-xl text-emerald-100/85">Streamline engineering workflows, adopt AI safely, and accelerate delivery with governance and observability built in.</p>
-            <button className="mt-6 inline-flex items-center justify-center rounded-xl bg-white px-5 py-3 text-sm font-semibold text-black shadow-lg shadow-white/20 transition hover:translate-y-[-2px]">
-              Request a demo
-            </button>
           </div>
         </motion.div>
 

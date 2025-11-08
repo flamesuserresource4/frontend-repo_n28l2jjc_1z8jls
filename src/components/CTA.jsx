@@ -1,10 +1,10 @@
 import React from 'react';
-import { Rocket, Github, ArrowRight } from 'lucide-react';
+import { Github } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const CTA = () => {
   return (
-    <section id="get-started" className="relative mx-auto max-w-7xl px-6 py-20">
+    <footer className="relative mx-auto max-w-7xl px-6 py-16">
       <motion.div
         initial={{ y: 16, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
@@ -15,21 +15,13 @@ const CTA = () => {
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
           <div>
             <h3 className="text-2xl font-bold text-white sm:text-3xl">
-              Build faster with Raiser — dark, glossy, and blazing.
+              Build faster with Raiser
             </h3>
             <p className="mt-2 max-w-xl text-emerald-100/90">
-              Start free. Generate UI, wire the backend, and deploy in a click with cinematic transitions.
+              Developer‑first. 3D‑native. Production‑ready.
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
-            <a
-              href="#"
-              className="group inline-flex items-center gap-2 rounded-xl bg-emerald-400 px-5 py-3 text-sm font-semibold text-black transition hover:translate-y-[-2px] hover:bg-emerald-300"
-            >
-              <Rocket className="h-4 w-4" />
-              Launch Raiser Studio
-              <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
-            </a>
             <a
               href="#"
               className="inline-flex items-center gap-2 rounded-xl border border-emerald-400/30 bg-white/5 px-5 py-3 text-sm font-semibold text-white/90 backdrop-blur transition hover:bg-white/10"
@@ -39,11 +31,11 @@ const CTA = () => {
             </a>
           </div>
         </div>
+        <div className="mt-6 border-t border-white/10 pt-6 text-xs text-emerald-200/70">
+          © {new Date().getFullYear()} Raiser. All rights reserved.
+        </div>
       </motion.div>
-      <p className="mt-6 text-center text-xs text-emerald-200/70">
-        By continuing, you agree to our Terms and Privacy Policy.
-      </p>
-    </section>
+    </footer>
   );
 };
 

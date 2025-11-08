@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Code2, Database, TerminalSquare, Rocket, Shield, Layers, Sliders } from 'lucide-react';
+import { Code2, Database, TerminalSquare, Rocket, Shield, Layers, Sliders, Github } from 'lucide-react';
 
 const SectionHeader = ({ eyebrow, title, subtitle }) => (
   <div className="mx-auto mb-10 max-w-3xl text-center">
@@ -25,7 +25,7 @@ const TiltPanel = ({ title, icon: Icon, children }) => (
     whileInView={{ y: 0, opacity: 1 }}
     viewport={{ once: true, amount: 0.3 }}
     transition={{ duration: 0.55, ease: 'easeOut' }}
-    whileHover={{ rotateX: 2.5, rotateY: -2.5, translateZ: 10 }}
+    whileHover={{ rotateX: 3, rotateY: -3, translateZ: 12 }}
     className="group relative min-h-[260px] overflow-hidden rounded-2xl border border-emerald-400/20 bg-gradient-to-b from-black/60 to-black/40 shadow-[0_20px_90px_-40px_rgba(16,185,129,0.5)] [transform-style:preserve-3d]"
   >
     <div className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
@@ -49,32 +49,61 @@ const TiltPanel = ({ title, icon: Icon, children }) => (
   </motion.div>
 );
 
+const LogoMark = ({ type }) => {
+  // minimal inline SVG marks for model chips
+  const common = 'h-3.5 w-3.5';
+  if (type === 'claude') {
+    return (
+      <svg viewBox="0 0 24 24" className={common} aria-hidden>
+        <circle cx="12" cy="12" r="10" fill="#10b981" />
+        <path d="M8 12l3 3 5-6" stroke="#052e2b" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    );
+  }
+  if (type === 'gpt') {
+    return (
+      <svg viewBox="0 0 24 24" className={common} aria-hidden>
+        <circle cx="12" cy="12" r="10" fill="#6366f1" />
+        <path d="M12 7v10M7 12h10" stroke="#0b0b2a" strokeWidth="2" />
+      </svg>
+    );
+  }
+  return (
+    <svg viewBox="0 0 24 24" className={common} aria-hidden>
+      <circle cx="12" cy="12" r="10" fill="#38bdf8" />
+      <path d="M8 12h8M12 8v8" stroke="#07222c" strokeWidth="2" />
+    </svg>
+  );
+};
+
 const RotatingModels3D = () => {
-  // simple 3D ring of model chips rotating infinitely
-  const item = (label, color) => (
+  const item = (label, color, type) => (
     <div
       key={label}
-      className={`absolute left-1/2 top-1/2 h-10 w-28 -translate-x-1/2 -translate-y-1/2 rounded-xl border border-white/10 bg-black/50 text-center text-xs font-medium text-white/90 shadow-inner backdrop-blur [transform-style:preserve-3d]`}
-      style={{ lineHeight: '2.5rem', boxShadow: `0 8px 30px -12px ${color}` }}
+      className={`absolute left-1/2 top-1/2 h-10 w-32 -translate-x-1/2 -translate-y-1/2 rounded-xl border border-white/10 bg-black/60 text-center text-xs font-medium text-white/90 shadow-inner backdrop-blur [transform-style:preserve-3d]`}
+      style={{ lineHeight: '2.5rem', boxShadow: `0 10px 34px -12px ${color}` }}
     >
-      {label}
+      <div className="mx-auto flex h-full w-full items-center justify-center gap-2">
+        <LogoMark type={type} />
+        <span>{label}</span>
+      </div>
     </div>
   );
 
   const items = [
-    { label: 'Claude', color: 'rgba(16,185,129,0.5)', rot: 0 },
-    { label: 'GPT', color: 'rgba(99,102,241,0.5)', rot: 120 },
-    { label: 'Gemini', color: 'rgba(56,189,248,0.5)', rot: 240 },
+    { label: 'Claude', color: 'rgba(16,185,129,0.5)', rot: 0, type: 'claude' },
+    { label: 'GPT', color: 'rgba(99,102,241,0.5)', rot: 120, type: 'gpt' },
+    { label: 'Gemini', color: 'rgba(56,189,248,0.5)', rot: 240, type: 'gemini' },
   ];
 
   return (
     <div className="relative mt-12 overflow-hidden rounded-2xl border border-emerald-400/15 bg-gradient-to-br from-emerald-500/10 via-emerald-400/5 to-emerald-300/5 p-8">
       <div className="mx-auto max-w-5xl">
         <div className="mb-6 flex items-center justify-between">
-          <div className="text-sm font-medium text-emerald-200">Open models via Raiser</div>
-          <div className="text-xs text-emerald-100/70">Switch models per task • Zero lock‑in</div>
+          <div className="text-sm font-medium text-emerald-200">Model switcher — Claude, GPT, Gemini</div>
+          <div className="text-xs text-emerald-100/70">Per‑task routing • Zero lock‑in</div>
         </div>
-        <div className="relative mx-auto h-56 w-full max-w-xl perspective-[900px]">
+        <div className="relative mx-auto h-56 w-full max-w-xl perspective-[1000px]">
           <motion.div
             initial={{ rotateY: 0 }}
             animate={{ rotateY: 360 }}
@@ -85,9 +114,9 @@ const RotatingModels3D = () => {
               <motion.div
                 key={it.label}
                 className="absolute inset-0 [transform-style:preserve-3d]"
-                style={{ transform: `rotateY(${it.rot}deg) translateZ(180px)` }}
+                style={{ transform: `rotateY(${it.rot}deg) translateZ(200px)` }}
               >
-                {item(it.label, it.color)}
+                {item(it.label, it.color, it.type)}
               </motion.div>
             ))}
           </motion.div>
@@ -102,9 +131,9 @@ const Showcase = () => {
   return (
     <section id="showcase" className="relative mx-auto max-w-7xl px-6 py-20">
       <SectionHeader
-        eyebrow="Raiser"
-        title="A developer platform that thinks in 3D"
-        subtitle="Raiser specializes in immersive, terminal‑first workflows with cinematic transitions and precise control."
+        eyebrow="Features"
+        title="Raiser — Full‑Stack 3D Workspace"
+        subtitle="A full‑stack app, just like this — with live scenes, code, data, and deploy all in one place."
       />
 
       {/* 2x2 layout: Maintain (left top), Code (right top), Database (left bottom), Deploy (right bottom) */}
@@ -116,13 +145,14 @@ const Showcase = () => {
 {`// routes/user.ts\nexport const loader = async () => {\n  const users = await db.user.findMany();\n  return json(users);\n};\n\nfunction Users() {\n  return (\n    <Table>\n      {users.map(u => (\n        <Row key={u.id}>{u.email}</Row>\n      ))}\n    </Table>\n  );\n}`}
         </TiltPanel>
         <TiltPanel title="Database" icon={Database}>
-{`-- schema.prisma\nmodel Order {\n  id        String   @id @default(cuid())\n  status    String\n  total     Int\n  createdAt DateTime @default(now())\n}`}        </TiltPanel>
+{`-- schema.prisma\nmodel Order {\n  id        String   @id @default(cuid())\n  status    String\n  total     Int\n  createdAt DateTime @default(now())\n}`}
+        </TiltPanel>
         <TiltPanel title="Deploy" icon={Rocket}>
 {`deploy preview --target=staging\nBuilding... done (48s)\nRunning tests... passed\nPushing image... us.gcr.io/raiser/app:0.9.2\nPromoting... done\nPreview URL → https://preview.raiser.dev/ab12`}
         </TiltPanel>
       </div>
 
-      {/* Open models 3D */}
+      {/* Rotating models 3D ring */}
       <RotatingModels3D />
 
       {/* State Of The Art */}
@@ -146,11 +176,27 @@ const Showcase = () => {
               <Layers className="h-4 w-4" />
               <span>Integrations</span>
             </div>
-            <h3 className="text-lg font-semibold text-white">Access all your context through integrations</h3>
-            <p className="mt-2 text-sm text-emerald-100/80">Connect GitHub, Slack, Notion, Jira, and your data sources into a single workspace.</p>
-            <div className="mt-6 grid grid-cols-6 gap-2 opacity-80">
-              {Array.from({ length: 12 }).map((_, i) => (
-                <div key={i} className="h-8 rounded-lg bg-white/5" />
+            <h3 className="text-lg font-semibold text-white">Connect the tools you already use</h3>
+            <p className="mt-2 text-sm text-emerald-100/80">GitHub, Slack, Notion, Jira — plus databases, storage, payments, deploy, and more. Your context, unified.</p>
+            <div className="mt-6 grid grid-cols-3 gap-2">
+              {[
+                { label: 'GitHub', Icon: Github },
+                { label: 'Slack' },
+                { label: 'Notion' },
+                { label: 'Jira' },
+                { label: 'Postgres' },
+                { label: 'MongoDB' },
+                { label: 'S3' },
+                { label: 'Stripe' },
+                { label: 'Vercel' },
+                { label: 'AWS' },
+                { label: 'Linear' },
+                { label: 'Discord' },
+              ].map(({ label, Icon: I }, i) => (
+                <div key={label + i} className="flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-xs text-white/90">
+                  {I ? <I className="h-3.5 w-3.5 opacity-80" /> : <span className="inline-block h-2 w-2 rounded-full bg-emerald-400/70" />}
+                  <span>{label}</span>
+                </div>
               ))}
             </div>
           </motion.div>
@@ -168,8 +214,8 @@ const Showcase = () => {
               <Sliders className="h-4 w-4" />
               <span>Markdown Control</span>
             </div>
-            <h3 className="text-lg font-semibold text-white">Control agents with standard Markdown</h3>
-            <p className="mt-2 text-sm text-emerald-100/80">Configure autonomy, tools, and safety in clear, versioned files.</p>
+            <h3 className="text-lg font-semibold text-white">Control agents with versioned Markdown</h3>
+            <p className="mt-2 text-sm text-emerald-100/80">Set autonomy, tools, and safety with human‑readable files checked into your repo.</p>
             <div className="mt-6 space-y-2 rounded-xl bg-black/50 p-4 text-[12px] leading-relaxed text-emerald-100/90">
               <div className="text-emerald-300">agent.md</div>
               <pre>{`# Raiser Agent\n- role: product-engineer\n- safety: high\n- tools: codegen, db, deploy`}</pre>
@@ -190,7 +236,7 @@ const Showcase = () => {
               <span>Prompt Editor</span>
             </div>
             <h3 className="text-lg font-semibold text-white">A powerful prompt editor</h3>
-            <p className="mt-2 text-sm text-emerald-100/80">Craft, test, and reuse prompts with variables and history.</p>
+            <p className="mt-2 text-sm text-emerald-100/80">Craft, test, and reuse prompts with variables, history, and diffable changes.</p>
             <div className="mt-6 rounded-xl border border-white/10 bg-black/50 p-4 text-[12px] text-slate-200">
               <div className="opacity-80">"Generate a billing settings page with toggles for plan, usage, and invoices."</div>
             </div>

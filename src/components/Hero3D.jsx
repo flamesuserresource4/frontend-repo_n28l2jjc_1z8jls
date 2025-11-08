@@ -7,7 +7,7 @@ const Hero3D = () => {
     <section className="relative min-h-[92vh] w-full overflow-hidden bg-black">
       <div className="absolute inset-0">
         <Spline
-          scene="https://prod.spline.design/N8g2VNcx8Rycz93J/scene.splinecode"
+          scene="https://prod.spline.design/DtQLjBkD1UpownGS/scene.splinecode"
           style={{ width: '100%', height: '100%' }}
         />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/0 via-black/60 to-black" />
@@ -22,7 +22,7 @@ const Hero3D = () => {
           className="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-black/40 px-3 py-1 text-xs text-emerald-200/90 backdrop-blur"
         >
           <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-400" />
-          Live 3D workspace — interactive and smooth
+          Live 3D Workspace — interactive and smooth
         </motion.div>
         <motion.h1
           initial={{ y: 18, opacity: 0 }}
@@ -38,7 +38,7 @@ const Hero3D = () => {
           transition={{ delay: 0.1, duration: 0.7, ease: 'easeOut' }}
           className="mt-4 max-w-2xl text-emerald-100/90"
         >
-          Build full‑stack apps faster with immersive visuals, smooth scene transitions, and a terminal‑first workflow. Precision control, enterprise‑grade security, and open model choice.
+          Secure, cinematic, and fast. Build full‑stack apps with a live 3D workspace, precision controls, and enterprise‑grade guardrails.
         </motion.p>
       </div>
     </section>

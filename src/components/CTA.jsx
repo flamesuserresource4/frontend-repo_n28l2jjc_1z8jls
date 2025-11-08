@@ -15,10 +15,10 @@ const CTA = () => {
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
           <div>
             <h3 className="text-2xl font-bold text-white sm:text-3xl">
-              Build faster with Raiser
+              Raiser — Build in 3D
             </h3>
             <p className="mt-2 max-w-xl text-emerald-100/90">
-              Developer‑first. 3D‑native. Production‑ready.
+              A full‑stack workspace with immersive scenes, live code, and deploy — unified.
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
